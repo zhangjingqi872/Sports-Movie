@@ -44,7 +44,7 @@ def set_sidebar_background_transparent():
     """, unsafe_allow_html=True)
 
 # ---- Perpare ----
-set_background('images\\tolo3.jpg')# 加载背景图像
+set_background('images/tolo3.jpg')# 加载背景图像
 
 text = rf""" **:orange[拳击运动注意事项：]**"""
 content = rf"""
