@@ -2,7 +2,6 @@ from PIL import Image
 import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
-import Sports
 from st_on_hover_tabs import on_hover_tabs
 
 st.set_page_config(
