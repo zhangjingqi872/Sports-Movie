@@ -90,4 +90,4 @@ with st.sidebar:
                              key="1")
 
     if tabs =='首页':
-       requests.get("https://sportspy-hujzhjnbl8wfdyya3bjvkn.streamlit.app/")
+       st.markdown("""<script>window.location.href="https://sportspy-hujzhjnbl8wfdyya3bjvkn.streamlit.app/";</script>""", unsafe_allow_html=True)
