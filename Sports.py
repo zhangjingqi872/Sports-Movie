@@ -74,7 +74,7 @@ with left_column:
     st_lottie(lottie_coding1, height=100, key="coding1")  # Display the image
     st.markdown("""
         <div style="display: flex; flex-direction: column; align-items: center;">
-            <a href="http://localhost:8501/film1/">
+            <a href="https://2film1py-gwcqg2ibetteyhovxr3xbf.streamlit.app/">
                 <button class="boxing-button">拳击</button>
             </a>
         </div>
