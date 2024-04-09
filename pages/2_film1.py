@@ -37,8 +37,7 @@ with left_column:
         unsafe_allow_html=True
     )
 with right_column:
-    if st.button("返回首页"):
-        st.switch_page("Sports.py")
+    st.link_button("返回首页", "https://sportspy-hujzhjnbl8wfdyya3bjvkn.streamlit.app/")
 
 # ---- Container with films ----
 with st.container():
