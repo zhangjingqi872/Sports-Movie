@@ -45,7 +45,7 @@ with st.container():
     st.write("---")
     image_column, text_column, margain_column = st.columns((0.5,2,0.5))
     with margain_column:
-        st.link_button("进入详情", "http://localhost:8501/yolo")
+        st.link_button("进入详情", "https://yolopy-arbcrp8rts4goawzdwfugh.streamlit.app/")
         
     with image_column:
     # insert image
