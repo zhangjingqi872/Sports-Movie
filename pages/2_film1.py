@@ -90,5 +90,5 @@ with st.sidebar:
                              key="1")
 
     if tabs =='首页':
-        st.page_link("https://sportspy-hujzhjnbl8wfdyya3bjvkn.streamlit.app/", label="首页")
+        st.markdown(<a><href="https://sportspy-hujzhjnbl8wfdyya3bjvkn.streamlit.app/"></a>)
     
