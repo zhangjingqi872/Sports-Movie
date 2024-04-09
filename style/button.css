@@ -1,0 +1,19 @@
+/* 使用CSS样式来调整按钮的大小 */
+.boxing-button {
+    display: inline-block;
+    margin-top: none;
+    background-color: #ffffff;
+    color: #92aaca;
+    padding: 2px 3px;
+    border: 1px solid lightgray; /* 将边框设置为浅灰色 */
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+.boxing-button:hover {
+    background-color: #b0c5e5;
+    border: 1px solid lightgray; /* 将边框设置为浅灰色 */
+    color: #536885;
+}
+

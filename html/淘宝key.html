@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>地图</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/AMap.PlaceSearchRender1120.css"/>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+        }
+        .map{
+            height: 100%;
+            width: 100%;
+            bottom: 0;
+            float: right;
+        }
+        .info-title{
+            font-weight: bolder;
+            color: #000;
+            font-size: 11px;
+            width: 170px;
+            line-height: 23px;
+            padding: 0 0 0 6px;
+        }
+        .info-content{
+            width: 200px;
+            padding: 4px;
+            color: #666666;
+            line-height: 23px;
+            font: 9px Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial;
+        }
+        .info-content img{
+            float: left;
+            margin: 3px;
+        }
+        .amap-info-combo .keyword-input {
+            height: auto;
+        }
+
+        .input-card {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 9999;
+            background: rgb(255,255,255,0.6);
+            padding: 10px;
+        }
+
+        .input-card .input-item {
+            margin-bottom: 5px;
+        }
+
+        .input-card .input-item span {
+            display: inline-block;
+            width: 4rem;
+        }  
+        
+        .info{
+            width:10rem;
+        }
+
+        #panel {
+            position: fixed;
+            background-color: white;
+            max-height: 30%;
+            overflow-y: auto;
+            top: 5px;
+            left: 5px;
+            width: 280px;
+            border-bottom: solid 1px silver;
+        }
+    </style>
+</head>
+<body>
+<div id="container" class="map" style="width: 600px; height: 400px;"></div>
+<div id="panel"></div>
+<script type="text/javascript">
+    window._AMapSecurityConfig = {
+      securityJsCode:"fbbbe00a292b2f49eb353d173b9c1b41",// "2ca41554ae7326482ceab8650fb60d47","fbbbe00a292b2f49eb353d173b9c1b41",
+    };
+    // 126ece83cc168682e75cc309d58c0c68    e8e2b68801531113b59dcdf48fc07371
+</script> 
+<script src="https://webapi.amap.com/maps?v=2.0&key=126ece83cc168682e75cc309d58c0c68&plugin=AMap.PlaceSearch,AMap.InfoWindow"></script>
+<script type="text/javascript" src="https://cache.amap.com/lbs/static/PlaceSearchRender.js"></script>
+<div class="input-card" style="width:14rem">
+    <h4>路况打开与关闭</h4>
+    <div>
+      <div class="input-item">
+        <button id="clickOn" class="btn" style="margin-right:1rem;">显示路况</button>
+        <button id="clickHide" class="btn">隐藏路况</button>
+      </div>
+</div>
+<div class="info">
+    <h4 id="status"></h4>
+    <p id="result"></p>
+    <p >附近的运动场馆</p>
+</div>
+
+<script>
+    // 设置地图图层
+    var layer = new AMap.createDefaultLayer({
+        zooms: [3, 20], //可见级别
+        visible: true, //是否可见
+        opacity: 0.5, //透明度
+        zIndex: 0, //叠加层级
+        });
+    
+
+    // 展示地图
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        viewMode: '2D', //默认使用 2D 模式
+        layers: [layer], //layer为创建的默认图层
+        mapStyle: "amap://styles/normal", //设置地图的显示样式
+        zoom: 13,
+        isHotspot: true,
+    });
+
+    //异步加载控件
+    AMap.plugin(["AMap.ControlBar",'AMap.Geolocation','AMap.PlaceSearch'], function () { //异步同时加载多个插件  
+        var controlbar = new AMap.ControlBar({
+            visible: false,
+            position: {
+            top: '150px',
+            right: '10px'
+            }
+            });
+
+        var geolocation = new AMap.Geolocation({   //创建定位实例
+            enableHighAccuracy: true, // 是否使用高精度定位，默认：true
+            timeout: 10000, // 设置定位超时时间，默认：无穷大
+            offset: [10, 20],  // 定位按钮的停靠位置的偏移量
+            zoomToAccuracy: true,  //  定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            position: 'LB', //  定位按钮的排放位置
+            needAddress: true,
+        }); 
+
+        map.addControl(geolocation);
+        map.addControl(controlbar);
+        
+        var cLng; //中心点横坐标
+        var cLat; //中心点纵坐标
+
+        geolocation.getCurrentPosition(function(status, result) {
+        if (status == 'complete') {
+            var position = map.getCenter();
+
+            cLng = position.getLng();
+            console.log(cLng);
+
+            cLat = position.getLat();
+            console.log(cLat);
+
+            var cpoint = [cLng, cLat];
+            console.log(cpoint);
+
+            var placeSearch = new AMap.PlaceSearch({ 
+            type: '运动场馆|运动场所|综合体育馆|户外健身场所',
+            pageSize: 3,
+            pageIndex: 1,
+            city: "021",
+            citylimit: true,
+            map: map,
+            panel: "panel",
+            autoFitView: true
+            });
+
+            placeSearch.searchNearBy('拳击', cpoint, 20000, function(status, result) {
+            // 在这里处理搜索结果
+            });
+        } else {
+            onError(result);
+        }
+        });
+    });
+
+    //解析定位错误信息
+    function onError(data) {
+        document.getElementById('status').innerHTML='定位失败'
+        document.getElementById('result').innerHTML = '失败原因排查信息:'+data.message+'</br>浏览器返回信息：'+data.originMessage;
+    }
+
+    // 构造热点地图
+    var placesearch = new AMap.PlaceSearch();  //构造地点查询类
+    var infoWindow=new AMap.InfoWindow({});
+    map.on('hotspotover', function(result) {
+        placesearch.getDetails(result.id, function(status, result) {
+            if (status === 'complete' && result.info === 'OK') {
+                placeSearch_CallBack(result);
+            }
+        });
+    });
+    //回调函数
+    function placeSearch_CallBack(data) { //infoWindow.open(map, result.lnglat);
+        var poiArr = data.poiList.pois;
+        if(poiArr[0]){
+          var location = poiArr[0].location;
+          infoWindow.setContent(createContent(poiArr[0]));
+          infoWindow.open(map,location);
+        }
+    }
+    function createContent(poi) {  //信息窗体内容
+        var s = [];
+        s.push('<div class="info-title">'+poi.name+'</div><div class="info-content">'+"地址：" + poi.address);
+        s.push("电话：" + poi.tel);
+        s.push("类型：" + poi.type);
+        s.push('<div>');
+        return s.join("<br>");
+    }
+
+    // 路况图层
+    const traffic = new AMap.TileLayer.Traffic({
+        autoRefresh: true, //是否自动刷新，默认为false
+        interval: 180, //刷新间隔，默认180s
+        });
+
+        map.add(traffic); //通过add方法添加图层
+
+    function show(){
+        traffic.show(); //显示路况图层
+    }
+
+    function off(){
+        traffic.hide(); //隐藏路况图层
+    }   
+    document.getElementById("clickOn").onclick = show;
+    document.getElementById("clickHide").onclick = off;
+
+</script>
+</body>
+</html>

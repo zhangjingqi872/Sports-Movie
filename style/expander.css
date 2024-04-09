@@ -1,0 +1,12 @@
+     /* Streamlit class name of the div that holds the expander's title*/
+     .css-q8sbsg p {
+        font-size: 32px;
+        color: rgb(132, 75, 238);
+        }
+      
+       /* Streamlit class name of the div that holds the expander's text*/
+      .css-nahz7x p {
+        font-family: bariol;
+        font-size: 20px;
+        color:black;
+        }
