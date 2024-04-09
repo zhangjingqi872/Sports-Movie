@@ -90,5 +90,5 @@ with st.sidebar:
                              key="1")
 
     if tabs =='首页':
-        st.markdown('<a href="javascript:void(0);" onclick="window.location.href=\'https://sportspy-hujzhjnbl8wfdyya3bjvkn.streamlit.app/\'"></a>', unsafe_allow_html=True)   
+        st.switch_page("Sports.py")
     
