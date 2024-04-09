@@ -10,6 +10,10 @@ st.set_page_config(
     layout="wide",
 )
 
+def local_css(flie_name):
+    with open(flie_name, "r", encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        
 # 禁用错误详情的显示
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -17,8 +21,8 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 # ---- Perpare ----
 img_Yolo = Image.open("images/hot.jpg")
 
-# ---- Title ----
-Sports.local_css("style/background.css")
+# ---- Background ----
+local_css("style/background.css")
 
 left_column,right_column = st.columns((3,1))
 
