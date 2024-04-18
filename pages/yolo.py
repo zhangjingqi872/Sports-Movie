@@ -89,22 +89,17 @@ development = """早在 20 世纪的上海，我国的现代拳击运动就已�
 
 # ---- Sidebar ----
 set_sidebar_background_transparent()
-with st.sidebar.expander(text,expanded=True):
+with st.sidebar.expander(text,expanded=False):
     st.markdown(
             f"""
-            <div style="color:#ffdeb9; font-family: 宋体; height: 1020px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
+            <div style="color:#ffdeb9; font-family: 宋体; height: 1000px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
                 <p style="margin-bottom: 0;">{content}</p>
             </div>
             """,
             unsafe_allow_html=True
         )
 option = st.sidebar.selectbox(
-      '<span style="color: orange;">拳击运动的相关介绍</span>',
-    ('运动简介', '发展历史')
-)
-
-option = st.sidebar.selectbox(
-    '拳击运动的相关介绍',
+     rf""" **:orange[拳击运动注意事项：]**""",
     ('运动简介', '发展历史')
 )
 
