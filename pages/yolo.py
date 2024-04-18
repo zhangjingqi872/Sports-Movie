@@ -98,13 +98,15 @@ with st.sidebar.expander(text,expanded=True):
             """,
             unsafe_allow_html=True
         )
-    option = st.selectbox(
+option = st.sidebar.selectbox(
     '拳击运动的相关介绍',
-    ('运动简介', '发展历史'))
-    if option == '运动简介':
-        st.write(brief_intro)
-    else
-        st.write(development)
+    ('运动简介', '发展历史')
+)
+
+if option == '运动简介':
+    st.write(brief_intro)
+else:
+    st.write(development)
 
 col1, col2 = st.columns((3, 2))
 
