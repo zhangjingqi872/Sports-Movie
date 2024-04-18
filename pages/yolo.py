@@ -111,24 +111,29 @@ option = st.sidebar.selectbox(
     ('运动简介', '发展历史')
 )
 
+option = st.sidebar.selectbox(
+    '拳击运动的相关介绍',
+    ('运动简介', '发展历史')
+)
+
 if option == '运动简介':
-     st.sidebar.markdown(
-            f"""
-            <div style="color:#ffdeb9; font-family: 宋体; height: 50px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
-                <p style="margin-bottom: 0;">{brief_intro}</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    st.sidebar.markdown(
+        f"""
+        <div style="color:#ffdeb9; font-family: 宋体; height: 50px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
+            <p style="margin-bottom: 0;">{brief_intro}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 else:
-     st.sidebar.markdown(
-            f"""
-            <div style="color:#ffdeb9; font-family: 宋体; height: 1020px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
-                <p style="margin-bottom: 0;">{development}</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    st.sidebar.markdown(
+        f"""
+        <div style="color:#ffdeb9; font-family: 宋体; height: 1020px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
+            <p style="margin-bottom: 0;">{development}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 col1, col2 = st.columns((3, 2))
 
