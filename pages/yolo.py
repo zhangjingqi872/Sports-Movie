@@ -106,11 +106,12 @@ with col2:
     col1_ = row1[0]
     tile = col1_.container(height=255)
     tile.image("images/million dollar baby.jpeg", use_column_width=True) 
-
+    st.write("百万美元宝贝")
     col2_ = row1[1]
     tile = col2_.container(height=255)
     tile.image("images/100dollars.jpg", use_column_width=True)  
-
+    
+    
     st.divider()
     with st.container(height=400):
         with open("html/淘宝key.html", "r",encoding = 'utf-8') as f:
