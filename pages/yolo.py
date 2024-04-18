@@ -104,9 +104,9 @@ option = st.sidebar.selectbox(
 )
 
 if option == '运动简介':
-    st.write(brief_intro)
+    st.sidebar.write(brief_intro)
 else:
-    st.write(development)
+    st.sidebar.write(development)
 
 col1, col2 = st.columns((3, 2))
 
