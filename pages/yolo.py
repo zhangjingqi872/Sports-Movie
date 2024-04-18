@@ -115,7 +115,7 @@ if option == '运动简介':
 else:
     st.sidebar.markdown(
         f"""
-        <div style="color:#ffdeb9; font-family: 宋体; height: 2320px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
+        <div style="color:#ffdeb9; font-family: 宋体; height: 2120px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
             <p style="margin-bottom: 0;">{development}</p>
         </div>
         """,
