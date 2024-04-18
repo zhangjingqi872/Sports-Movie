@@ -99,14 +99,36 @@ with st.sidebar.expander(text,expanded=True):
             unsafe_allow_html=True
         )
 option = st.sidebar.selectbox(
-    '拳击运动的相关介绍',
+     st.markdown(
+        f"""
+        <div style="margin-bottom: 0; font-size: 18px; font-weight: bold; font-family: 宋体, sans-serif;color:white;">拳击运动</div>
+        <div style="overflow-y: scroll; color:white; font-family: 宋体; height: 150px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
+            <p style="margin-bottom: 0;">{induction}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    ),
     ('运动简介', '发展历史')
 )
 
 if option == '运动简介':
-    st.sidebar.write(brief_intro)
+     st.sidebar.markdown(
+            f"""
+            <div style="color:#ffdeb9; font-family: 宋体; height: 50px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
+                <p style="margin-bottom: 0;">{brief_intro}</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 else:
-    st.sidebar.write(development)
+     st.sidebar.markdown(
+            f"""
+            <div style="color:#ffdeb9; font-family: 宋体; height: 1020px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
+                <p style="margin-bottom: 0;">{development}</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
 col1, col2 = st.columns((3, 2))
 
