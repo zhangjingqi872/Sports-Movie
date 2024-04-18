@@ -94,7 +94,7 @@ sports = {
 
 # ---- Sidebar ----
 set_sidebar_background_transparent()
-with st.sidebar.expander(text,expanded=False):
+with st.sidebar.expander(text,expanded=True):
     st.markdown(
             f"""
             <div style="color:#ffdeb9; font-family: 宋体; height: 1020px; border: 1px solid rgba(49, 51, 63, 0.1); border-radius: 1rem; padding: calc(1em - 1px); background-color: rgba(255, 255, 255, 0.2);">
