@@ -46,7 +46,7 @@ def set_sidebar_background_transparent():
 # ---- Perpare ----
 set_background('images/tolo3.jpg')# 加载背景图像
 
-text = rf""" **:orange[拳击运动注意事项：]**"""
+text = rf""" **:orange[拳击运动相关介绍：]**"""
 content = rf"""
            -1、热身时间要足够，否则身体得不到充分的伸展。上课时腿部应每15-20分钟作一次伸展。<br>
            -2、腹部、下颚收紧，两手握拳于脸前(防御姿势)保持呼吸，不屏气。<br>
