@@ -179,7 +179,7 @@ with col1:
     with col1.container(height=1000):
         st.image("images/图片1.png")
 
-with open("html/lda_pass6.html", "r") as f:
+with open("html/topic3.html", "r") as f:
     html = f.read()
 
 # 使用st.components.v1.html函数将HTML文件嵌入到Streamlit中
