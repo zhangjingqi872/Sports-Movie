@@ -77,18 +77,19 @@ with st.container():
         st.image(img_Yolo)
 
     with text_column:
-        st.subheader("热辣滚烫")
+        st.subheader("百万美元宝贝")
         st.write(
             """
-            导演: 贾玲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类型: 剧情 / 喜剧\n
-            编剧: 贾玲 / 孙集斌 / 刘宏禄 / 郭宇鹏 / 卜钰\n
-            制片国家/地区: 中国大陆\n
-            上映日期: 2024-02-10(中国大陆)
+            导演: 克林特·伊斯特伍德&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类型: 剧情 / 喜剧\n
+            编剧: F·X·图尔 / 保罗·哈吉斯\n
+            制片国家/地区: 美国\n
+            上映日期: 2004-12-15(美国)
             """
         )
-        code = '''主演: 贾玲 / 雷佳音 / 张小斐 / 杨紫 / 沙溢 / 乔杉 / 李雪琴 / 马丽 / 魏翔 / 赵海燕 / 张琪 /
-    沈春阳 /沈涛 / 许君聪 / 卜钰 / 朱天福 / 刘宏禄 / 张泰维 / 郭宇鹏 / 李海银 / 李国麟 /
-    张桂玲 / 孙婉竹 / 赵婷婷 / 法志远 / 姬晴 / 曹贺军 / 刘頔 / 贾文田 / 雷鸣武'''
+        code = '''主演: 克林特·伊斯特伍德 / 希拉里·斯万克 / 摩根·弗里曼 / 杰伊·巴鲁切尔 / 麦克·柯尔特 /
+        露西娅 瑞科尔 / 布莱恩·F·奥博恩 / 安东尼·麦凯 / 玛格·马丁戴尔 / 瑞琪·琳德赫姆 / 迈克尔·佩纳 / 
+        本尼托·马丁内斯 / Bruce MacVittie / David Powledge / 乔·达安格里奥
+        '''
         st.code(code, language='txt')
 
 # ---- Sidebar ----
