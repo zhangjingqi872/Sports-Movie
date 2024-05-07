@@ -57,7 +57,7 @@ lottie_coding8 = load_lottieurl("https://lottie.host/82f65d35-51ac-42e9-bc88-0fe
 st.markdown(
     """
     <div style="background-color: #99b2d5; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);">
-        <h3 style="color: white;">风评较好的体育相关电影</h3>
+        <h3 style="color: white;"> 风评较好的体育相关电影</h3>
         <h2 style="color: white;">选择你想观看的体育类型</h2>
         <p style="color: white;">Please choose the type of sports</p>
     </div>
