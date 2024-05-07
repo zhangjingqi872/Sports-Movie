@@ -74,7 +74,7 @@ with st.container():
         
     with image_column:
     # insert image
-        st.image(img_Yolo)
+        st.image(img_Billion)
 
     with text_column:
         st.subheader("百万美元宝贝")
