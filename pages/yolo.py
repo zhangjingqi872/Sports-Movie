@@ -183,7 +183,7 @@ with open("html/模型可视化结果为3.html", "r") as f:
     html = f.read()
 
 # 使用st.components.v1.html函数将HTML文件嵌入到Streamlit中
-st.components.v1.html(html, width=1300, height=800)
+st.components.v1.html(html, width=1500, height=800)
     
 
 
