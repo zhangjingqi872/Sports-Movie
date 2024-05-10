@@ -189,6 +189,10 @@ st.divider()
 c1,c2,c3 = st.columns(3)
 with c1:
     st.image("images/yolo_snownlp.png")
+with c2:
+    st.image("images/yolo_BERT.png")
+with c3:
+    st.image("images/yolo_詞典.png")
     
 
 
