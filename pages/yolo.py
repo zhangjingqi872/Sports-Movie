@@ -184,6 +184,11 @@ with open("html/模型可视化结果为3.html", "r") as f:
 
 # 使用st.components.v1.html函数将HTML文件嵌入到Streamlit中
 st.components.v1.html(html, width=1300, height=800)
+
+st.divider()
+c1,c2,c3 = st.columns(3)
+with c1:
+    st.image("images/yolo_snownlp.png")
     
 
 
