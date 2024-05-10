@@ -158,7 +158,7 @@ with col2:
     tile.image("images/million dollar baby.jpeg", use_column_width=True) 
 
     col2_ = row1[1]
-    tile = col2_.container(height=255)
+    tile = col2_.container(height=265)
     tile.image("images/100dollars.jpg", use_column_width=True)  
     
     
